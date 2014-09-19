@@ -9,6 +9,8 @@ import com.pegpop.MainPageActivity;
 import com.pegpop.R;
 
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,16 +34,16 @@ public class MainFragment extends Fragment{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
+	    getActivity().getActionBar().hide();
 	    uiHelper = new UiLifecycleHelper(getActivity(), callback);
 	    uiHelper.onCreate(savedInstanceState);
 	}
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-	    View view = inflater.inflate(R.layout.main_fragment, container, false);
+		View view = inflater.inflate(R.layout.main_fragment, container, false);
 	    LoginButton authButton = (LoginButton) view.findViewById(R.id.authButton);
 	    authButton.setFragment(this);
-
 	    return view;
 	}
 	

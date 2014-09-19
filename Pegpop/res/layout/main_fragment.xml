@@ -11,9 +11,17 @@
         android:layout_width="222dp"
         android:layout_height="166dp"
         android:contentDescription="@string/description"
-        android:src="@drawable/pegpop_title" 
+        android:src="@drawable/title" 
         android:layout_marginTop="100dp"
-        android:layout_centerHorizontal="true" /> 
+        android:layout_centerHorizontal="true" />
+        
+    <!-- <TextView 
+        android:id="@+id/pegpopTitle"
+        android:layout_marginTop="100dp"
+		android:layout_width="320dp"
+        android:layout_height="166dp"
+        android:gravity="center"
+        android:text="@string/app_name"/> -->
     
     <com.facebook.widget.LoginButton
         android:id="@+id/authButton"
