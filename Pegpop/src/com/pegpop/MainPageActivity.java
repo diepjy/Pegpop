@@ -24,10 +24,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.facebook.Session;
+import com.pegpop.createProfile.UploadProfilePicture;
 import com.pegpop.fragment.MainFragment;
 
-public class MainPageActivity extends ActionBarActivity{
-	
+public class MainPageActivity extends ActionBarActivity {
+
 	public final static String EXTRA_MESSAGE = "com.pegpop.MESSAGE";
 	private MainFragment mainFragment;
 	private ImageButton settingsButton;
@@ -35,70 +36,77 @@ public class MainPageActivity extends ActionBarActivity{
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.fragment_main); 
-	    ActionBar actionBar = getSupportActionBar();
-	    actionBar.setDisplayHomeAsUpEnabled(false);
-	    actionBar.setCustomView(R.layout.actionbar_top); 
-	    actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME|ActionBar.DISPLAY_SHOW_CUSTOM); //show it 
-	    setCustomTitle("Home");
-	    
-	    settingsButton = (ImageButton) findViewById(R.id.settings);
-	    settingsButton.setOnClickListener(new OnClickListener() {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.fragment_main);
+		ActionBar actionBar = getSupportActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(false);
+		actionBar.setCustomView(R.layout.actionbar_top);
+		actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME
+				| ActionBar.DISPLAY_SHOW_CUSTOM); // show it
+		setCustomTitle("Home");
+
+		settingsButton = (ImageButton) findViewById(R.id.settings);
+		settingsButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View view) {
-				PopupMenu popupMenu = new PopupMenu(MainPageActivity.this, settingsButton);
-				popupMenu.getMenuInflater().inflate(R.menu.settings_popup_menu, popupMenu.getMenu());
-				popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-					
-					@Override
-					public boolean onMenuItemClick(MenuItem item) {
-						switch(item.getItemId()) {
-						case R.id.settings:
-							return true;
-						case R.id.logout:
-							Log.i(TAG, "Logged out...");
-							if (Session.getActiveSession() != null) {
-							    Session.getActiveSession().closeAndClearTokenInformation();
-								Session.setActiveSession(null);
-								Intent i = new Intent(getApplication(), MainActivity.class);
-								startActivity(i);
+				PopupMenu popupMenu = new PopupMenu(MainPageActivity.this,
+						settingsButton);
+				popupMenu.getMenuInflater().inflate(R.menu.settings_popup_menu,
+						popupMenu.getMenu());
+				popupMenu
+						.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+
+							@Override
+							public boolean onMenuItemClick(MenuItem item) {
+								switch (item.getItemId()) {
+								case R.id.settings:
+									Intent i = new Intent(getApplication(), UploadProfilePicture.class);
+									startActivity(i);
+									return true;
+								case R.id.logout:
+									Log.i(TAG, "Logged out...");
+									if (Session.getActiveSession() != null) {
+										Session.getActiveSession()
+												.closeAndClearTokenInformation();
+										Session.setActiveSession(null);
+										Intent logoutIntent = new Intent(getApplication(),
+												MainActivity.class);
+										startActivity(logoutIntent);
+									}
+									return true;
+								default:
+									return false;
+								}
 							}
-							return true;
-						default:
-							return false;
-						}
-					}
-				});
+						});
 				popupMenu.show();
 			}
-	    });
+		});
 	}
-	
-	private void setCustomTitle(String title)
-	{
+
+	private void setCustomTitle(String title) {
 		TextView textViewTitle = (TextView) findViewById(R.id.myText);
 		textViewTitle.setText(title);
-		}
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);
-		
-        return (super.onCreateOptionsMenu(menu));
+
+		return (super.onCreateOptionsMenu(menu));
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		switch(item.getItemId()) {
+		switch (item.getItemId()) {
 		case R.id.action_search:
-			//Search action
+			// Search action
 			return true;
 		case R.id.action_settings:
-            return true;
+			return true;
 		default:
-            return super.onOptionsItemSelected(item);
+			return super.onOptionsItemSelected(item);
 		}
 	}
 
@@ -118,14 +126,15 @@ public class MainPageActivity extends ActionBarActivity{
 			return rootView;
 		}
 	}
-	
-	//View as the only parameter (it will be the view that was clicked)
+
+	// View as the only parameter (it will be the view that was clicked)
 	public void sendMessage(View view) {
-		/*Intent provides run time binding between separate components
-		 * Intent is the app's intent to do something - usually used to start another activity
-		 * Intent can carry data to the next activity
-		 * this - activity is a subclass of Context
-		*/
+		/*
+		 * Intent provides run time binding between separate components Intent
+		 * is the app's intent to do something - usually used to start another
+		 * activity Intent can carry data to the next activity this - activity
+		 * is a subclass of Context
+		 */
 		Intent intent = new Intent(this, DisplayMessageActivity.class);
 		EditText editText = (EditText) findViewById(R.id.edit_message);
 		String message = editText.getText().toString();
