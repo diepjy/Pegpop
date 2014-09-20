@@ -50,6 +50,11 @@ public class MainFragment extends Fragment{
 	private void onSessionStateChange(Session session, SessionState state, Exception exception) {
 	    if (state.isOpened()) {
 	        Log.i(TAG, "Logged in...");
+	        /* TODO: If logged in - check the database if they are already a member
+	         * 		if(true) go to main page
+	         * 		else go to create profile
+	         */
+	        
 			Intent intent = new Intent(getActivity(), MainPageActivity.class);
 			startActivity(intent);
 	    } else if (state.isClosed()) {

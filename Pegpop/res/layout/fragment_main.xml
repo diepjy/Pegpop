@@ -16,10 +16,5 @@
         android:layout_height="wrap_content"
         android:text="@string/button_send" 
         android:onClick="sendMessage"/>
-    
-    <!-- <item
-    android:id="@+id/layout_item"
-    android:actionViewClass="android.widget.RelativeLayout"
-    android:showAsAction="always|withText"
-    android:title="Text 1"/> -->
+
 </LinearLayout>

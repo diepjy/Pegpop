@@ -48,15 +48,7 @@ public class MainActivity extends FragmentActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		switch(item.getItemId()) {
-		case R.id.action_search:
-			//Search action
-			return true;
-		case R.id.action_settings:
-            return true;
-		default:
-            return super.onOptionsItemSelected(item);
-		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	/**
@@ -75,20 +67,4 @@ public class MainActivity extends FragmentActivity {
 			return rootView;
 		}
 	}
-	
-	//View as the only parameter (it will be the view that was clicked)
-	public void sendMessage(View view) {
-		/*Intent provides run time binding between separate components
-		 * Intent is the app's intent to do something - usually used to start another activity
-		 * Intent can carry data to the next activity
-		 * this - activity is a subclass of Context
-		*/
-		Intent intent = new Intent(this, DisplayMessageActivity.class);
-		EditText editText = (EditText) findViewById(R.id.edit_message);
-		String message = editText.getText().toString();
-		intent.putExtra(EXTRA_MESSAGE, message);
-		startActivity(intent);
-	}
-	
-
 }

@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,13 +23,15 @@ import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.facebook.Session;
 import com.pegpop.fragment.MainFragment;
 
 public class MainPageActivity extends ActionBarActivity{
 	
 	public final static String EXTRA_MESSAGE = "com.pegpop.MESSAGE";
 	private MainFragment mainFragment;
-	ImageButton settingsButton;
+	private ImageButton settingsButton;
+	private String TAG = "MainPageActivity";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,13 @@ public class MainPageActivity extends ActionBarActivity{
 						case R.id.settings:
 							return true;
 						case R.id.logout:
+							Log.i(TAG, "Logged out...");
+							if (Session.getActiveSession() != null) {
+							    Session.getActiveSession().closeAndClearTokenInformation();
+								Session.setActiveSession(null);
+								Intent i = new Intent(getApplication(), MainActivity.class);
+								startActivity(i);
+							}
 							return true;
 						default:
 							return false;

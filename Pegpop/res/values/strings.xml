@@ -2,6 +2,10 @@
 <resources>
 
     <string name="app_name">Pegpop</string>
+    
+    <string name="profilePicture">Step 1: Upload Profile Picture</string>
+    <string name="uploadPictureButton">Upload Picture</string>
+    
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
     <string name="action_settings">Settings</string>
