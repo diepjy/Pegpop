@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" 
-	android:theme="@android:style/Theme.NoTitleBar" >
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="right"
+    android:theme="@android:style/Theme.NoTitleBar" >
 
     <TextView
         android:id="@+id/myText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_weight="1"
         android:gravity="left"
-        android:paddingTop="7dp"
         android:textColor="#ffffff"
-        android:textSize="18sp" />
-    
-    <ImageButton 
+        android:textSize="18sp" 
+        android:layout_gravity="center"
+        android:paddingTop="7dp"/>
+
+    <ImageButton
         android:id="@+id/next"
-		style="?android:attr/actionButtonStyle"
+        style="?android:attr/actionButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/next"
         android:showAsAction="ifRoom"
-		android:contentDescription="@string/next"
-        android:src="@drawable/ic_action_next_item"/>
+        android:src="@drawable/ic_action_next_item" />
 
 </LinearLayout>

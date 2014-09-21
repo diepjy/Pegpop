@@ -2,6 +2,7 @@ package com.pegpop;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
@@ -44,6 +45,8 @@ public class MainPageActivity extends ActionBarActivity {
 		actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME
 				| ActionBar.DISPLAY_SHOW_CUSTOM); // show it
 		setCustomTitle("Home");
+		
+		getSupportActionBar().setBackgroundDrawable(new ColorDrawable(0xff78CACA));
 
 		settingsButton = (ImageButton) findViewById(R.id.settings);
 		settingsButton.setOnClickListener(new OnClickListener() {
@@ -90,42 +93,22 @@ public class MainPageActivity extends ActionBarActivity {
 		textViewTitle.setText(title);
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.main, menu);
-
-		return (super.onCreateOptionsMenu(menu));
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.action_search:
-			// Search action
-			return true;
-		case R.id.action_settings:
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);
-		}
-	}
-
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	public static class PlaceholderFragment extends Fragment {
-
-		public PlaceholderFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_main, container,
-					false);
-			return rootView;
-		}
-	}
+//	/**
+//	 * A placeholder fragment containing a simple view.
+//	 */
+//	public static class PlaceholderFragment extends Fragment {
+//
+//		public PlaceholderFragment() {
+//		}
+//
+//		@Override
+//		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+//				Bundle savedInstanceState) {
+//			View rootView = inflater.inflate(R.layout.fragment_main, container,
+//					false);
+//			return rootView;
+//		}
+//	}
 
 	// View as the only parameter (it will be the view that was clicked)
 	public void sendMessage(View view) {
@@ -135,11 +118,11 @@ public class MainPageActivity extends ActionBarActivity {
 		 * activity Intent can carry data to the next activity this - activity
 		 * is a subclass of Context
 		 */
-		Intent intent = new Intent(this, DisplayMessageActivity.class);
-		EditText editText = (EditText) findViewById(R.id.edit_message);
-		String message = editText.getText().toString();
-		intent.putExtra(EXTRA_MESSAGE, message);
-		startActivity(intent);
+//		Intent intent = new Intent(this, DisplayMessageActivity.class);
+//		EditText editText = (EditText) findViewById(R.id.edit_message);
+//		String message = editText.getText().toString();
+//		intent.putExtra(EXTRA_MESSAGE, message);
+//		startActivity(intent);
 	}
 
 }

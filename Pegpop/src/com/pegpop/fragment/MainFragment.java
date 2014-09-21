@@ -4,20 +4,15 @@ import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
 import com.facebook.widget.LoginButton;
-import com.pegpop.MainActivity;
 import com.pegpop.MainPageActivity;
 import com.pegpop.R;
 
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
-import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.content.Intent;
 
 public class MainFragment extends Fragment{
@@ -49,7 +44,7 @@ public class MainFragment extends Fragment{
 	
 	private void onSessionStateChange(Session session, SessionState state, Exception exception) {
 	    if (state.isOpened()) {
-	        Log.i(TAG, "Logged in...");
+	        Log.i(TAG, "Logged in1...");
 	        /* TODO: If logged in - check the database if they are already a member
 	         * 		if(true) go to main page
 	         * 		else go to create profile
