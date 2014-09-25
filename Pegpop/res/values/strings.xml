@@ -3,9 +3,13 @@
 
     <string name="app_name">Pegpop</string>
     
-    <string name="profilePicture">Step 1: Upload Profile Picture</string>
-    <string name="uploadPictureButton">Upload Picture</string>
     <string name="next">Next</string>
+    
+	<string name="username">Step 1: Username</string>
+	<string name="setUsername">Username</string>
+    
+    <string name="profilePicture">Step 2: Upload Profile Picture</string>
+    <string name="uploadPictureButton">Upload Picture</string>
     
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
@@ -19,4 +23,5 @@
     <string name="helloWorld">Hello World</string>
     <string name="settings">Settings</string>
     <string name="log_out">Log Out</string>
+
 </resources>

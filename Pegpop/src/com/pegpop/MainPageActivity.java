@@ -26,6 +26,7 @@ import android.widget.TextView;
 
 import com.facebook.Session;
 import com.pegpop.createProfile.UploadProfilePicture;
+import com.pegpop.createProfile.Username;
 import com.pegpop.fragment.MainFragment;
 
 public class MainPageActivity extends ActionBarActivity {
@@ -64,7 +65,7 @@ public class MainPageActivity extends ActionBarActivity {
 							public boolean onMenuItemClick(MenuItem item) {
 								switch (item.getItemId()) {
 								case R.id.settings:
-									Intent i = new Intent(getApplication(), UploadProfilePicture.class);
+									Intent i = new Intent(getApplication(), Username.class);
 									startActivity(i);
 									return true;
 								case R.id.logout:

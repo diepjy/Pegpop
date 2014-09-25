@@ -43,6 +43,14 @@
                 android:value="com.pegpop.createProfile.UploadProfilePicture" />
         </activity>
         <activity
+            android:name="com.pegpop.createProfile.Username"
+            android:label="@string/username"
+            android:uiOptions="splitActionBarWhenNarrow">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pegpop.createProfile.Username" />
+        </activity>
+        <activity
             android:name="com.pegpop.DisplayMessageActivity"
             android:label="@string/title_activity_display_message"
             android:parentActivityName="com.pegpop.MainPageActivity"

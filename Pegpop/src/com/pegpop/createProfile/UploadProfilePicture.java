@@ -39,7 +39,7 @@ public class UploadProfilePicture extends ActionBarActivity {
 	}
 
 	private void setCustomTitle(String title) {
-		TextView textViewTitle = (TextView) findViewById(R.id.myText);
+		TextView textViewTitle = (TextView) findViewById(R.id.profilePitcureTitle);
 		textViewTitle.setText(title);
 	}
 

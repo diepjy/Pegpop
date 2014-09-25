@@ -6,15 +6,15 @@
     android:theme="@android:style/Theme.NoTitleBar" >
 
     <TextView
-        android:id="@+id/profilePitcureTitle"
+        android:id="@+id/usernameTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_weight="1"
         android:gravity="left"
+        android:paddingTop="7dp"
         android:textColor="#ffffff"
-        android:textSize="18sp" 
-        android:layout_gravity="center"
-        android:paddingTop="7dp"/>
+        android:textSize="18sp" />
 
     <ImageButton
         android:id="@+id/next"
