@@ -16,7 +16,7 @@
         android:text="@string/termsAndConditions" />
 
     <Button
-        android:id="@+id/readTermsAndConditons"
+        android:id="@+id/readTermsAndConditonsButton"
         android:layout_width="200dp"
         android:layout_height="30dp"
         android:layout_centerHorizontal="true"
@@ -24,7 +24,7 @@
         android:layout_marginTop="50dp"
         android:background="@drawable/round_button"
         android:onClick="readTermsAndConditions"
-        android:text="@string/readTermsAndConditions"
+        android:text="@string/readTermsAndConditionsButton"
         android:textColor="#FFFFFF" />
 
     <TextView

@@ -14,9 +14,11 @@
     <string name="uploadPictureButton">Upload Picture</string>
     
     <string name="termsAndConditions">Please agree to the terms and conditions</string>
-    <string name="readTermsAndConditions">Read</string>
+    <string name="readTermsAndConditionsButton">Read</string>
     <string name="agree">I agree</string>
     <string name="disagree">I disagree</string>
+    
+	<string name="readTermsAndConditions">TODO Terms and Conditions</string>
     
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>

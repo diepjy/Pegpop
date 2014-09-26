@@ -44,5 +44,10 @@ private ImageButton nextButton;
 		TextView textViewTitle = (TextView) findViewById(R.id.termsAndConditions);
 		textViewTitle.setText(title);
 	}
+	
+	public void readTermsAndConditions(View view) {
+		Intent i = new Intent(getApplication(), ReadTermsAndConditions.class);
+		startActivity(i);
+	}
 
 }
