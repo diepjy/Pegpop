@@ -27,35 +27,49 @@
         android:text="@string/readTermsAndConditionsButton"
         android:textColor="#FFFFFF" />
 
-    <TextView
+    <!--
+         <TextView
         android:id="@+id/agree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="200dp"
         android:text="@string/agree" />
+    -->
 
-    <RadioButton
-        android:id="@+id/agreeRadioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="195dp" />
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
-    <TextView
+        <RadioButton
+            android:id="@+id/agreeRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="195dp"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/agree" />
+
+        <RadioButton
+            android:id="@+id/disagreeRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/disagree" />
+    </RadioGroup>
+
+    <!--
+         <TextView
         android:id="@+id/disagree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="250dp"
         android:text="@string/disagree" />
+    -->
 
-    <RadioButton
-        android:id="@+id/disagreeRadioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="245dp" />
 
     <!--
     <Button

@@ -332,8 +332,7 @@ int id action_menu_presenter 0x7f050019
 int id action_mode_close_button 0x7f050026
 int id action_starred 0x7f050042
 int id activity_chooser_view_content 0x7f050027
-int id agree 0x7f05006d
-int id agreeRadioButton 0x7f05006e
+int id agreeRadioButton 0x7f05006d
 int id always 0x7f05000d
 int id authButton 0x7f050069
 int id beginning 0x7f050013
@@ -368,8 +367,7 @@ int id container 0x7f050045
 int id default_activity_button 0x7f05002a
 int id dialog 0x7f050010
 int id disableHome 0x7f05000a
-int id disagree 0x7f05006f
-int id disagreeRadioButton 0x7f050070
+int id disagreeRadioButton 0x7f05006e
 int id dropdown 0x7f050011
 int id edit_query 0x7f050032
 int id end 0x7f050015
@@ -383,7 +381,7 @@ int id image 0x7f050029
 int id large 0x7f050002
 int id listMode 0x7f050003
 int id list_item 0x7f05002b
-int id logout 0x7f050071
+int id logout 0x7f05006f
 int id middle 0x7f050014
 int id myText 0x7f050041
 int id never 0x7f05000b
