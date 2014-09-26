@@ -87,7 +87,6 @@ public class UploadProfilePicture extends ActionBarActivity {
 			public void onClick(DialogInterface dialog, int item) {
 				if(items[item].equals("Take photo")) {
 					dispatchTakePictureIntent();
-					dialog.dismiss();
 				}
 				if(items[item].equals("Gallery")) {
 					Intent intent = new Intent(
@@ -98,6 +97,7 @@ public class UploadProfilePicture extends ActionBarActivity {
                             Intent.createChooser(intent, "Select File"),
                             SELECT_FILE);
 				}
+				dialog.dismiss();
 			}
 		});
 		builder.show();
