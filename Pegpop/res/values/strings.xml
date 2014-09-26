@@ -7,6 +7,8 @@
     
 	<string name="username">Step 1: Username</string>
 	<string name="setUsername">Username</string>
+	<string name="publicBlogTitle">Public blog</string>
+	<string name="privateBlogTitle">Private blog</string>
     
     <string name="profilePicture">Step 2: Upload Profile Picture</string>
     <string name="uploadPictureButton">Upload Picture</string>
