@@ -51,6 +51,14 @@
                 android:value="com.pegpop.createProfile.Username" />
         </activity>
         <activity
+            android:name="com.pegpop.createProfile.TermsAndConditions"
+            android:label="@string/termsAndConditions"
+            android:uiOptions="splitActionBarWhenNarrow">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pegpop.createProfile.TermsAndConditions" />
+        </activity>
+        <activity
             android:name="com.pegpop.DisplayMessageActivity"
             android:label="@string/title_activity_display_message"
             android:parentActivityName="com.pegpop.MainPageActivity"

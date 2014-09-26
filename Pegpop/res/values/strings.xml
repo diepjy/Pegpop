@@ -13,6 +13,11 @@
     <string name="profilePicture">Step 2: Upload Profile Picture</string>
     <string name="uploadPictureButton">Upload Picture</string>
     
+    <string name="termsAndConditions">Please agree to the terms and conditions</string>
+    <string name="readTermsAndConditions">Read</string>
+    <string name="agree">I agree</string>
+    <string name="disagree">I disagree</string>
+    
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
     <string name="action_settings">Settings</string>

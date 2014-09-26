@@ -2,6 +2,7 @@ package com.pegpop.createProfile;
 
 import com.pegpop.R;
 
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -33,7 +34,8 @@ public class UploadProfilePicture extends ActionBarActivity {
 
 			@Override
 			public void onClick(View view) {
-				//Go to next intent
+				Intent i = new Intent(getApplication(), TermsAndConditions.class);
+				startActivity(i);
 			}
 		});
 	}
