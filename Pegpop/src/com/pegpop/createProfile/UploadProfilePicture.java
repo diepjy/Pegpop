@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 
 import com.pegpop.R;
@@ -12,6 +13,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.ColorDrawable;
@@ -79,7 +82,7 @@ public class UploadProfilePicture extends ActionBarActivity {
 	}
 	
 	private void selectPicture() {
-		final CharSequence[] items = {"Take photo", "Gallery", "Facebook", "Twitter", "Instagram"};
+		final CharSequence[] items = {"Take photo", "Gallery", "Facebook", "Instagram"};
 		AlertDialog.Builder builder = new AlertDialog.Builder(UploadProfilePicture.this);
 		builder.setItems(items, new DialogInterface.OnClickListener() {
 			
@@ -89,13 +92,15 @@ public class UploadProfilePicture extends ActionBarActivity {
 					dispatchTakePictureIntent();
 				}
 				if(items[item].equals("Gallery")) {
-					Intent intent = new Intent(
-                            Intent.ACTION_PICK,
-                            android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    intent.setType("image/*");
-                    startActivityForResult(
-                            Intent.createChooser(intent, "Select File"),
-                            SELECT_FILE);
+					Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+					photoPickerIntent.setType("image/*");
+					startActivityForResult(photoPickerIntent, SELECT_FILE);   
+				}
+				if(items[item].equals("Facebook")) {
+					
+				}
+				if(items[item].equals("Instagram")) {
+					
 				}
 				dialog.dismiss();
 			}
@@ -112,12 +117,87 @@ public class UploadProfilePicture extends ActionBarActivity {
 	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-	    if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-	        Bundle extras = data.getExtras();
-	        Bitmap imageBitmap = (Bitmap) extras.get("data");
-	        mImageView = (ImageView) findViewById(R.id.profilePicture); 
-	        mImageView.setImageBitmap(imageBitmap);
-	    }
+		if(resultCode == RESULT_OK) {
+			switch(requestCode) {
+			case REQUEST_IMAGE_CAPTURE:
+		        Bundle extras = data.getExtras();
+		        Bitmap imageBitmap = (Bitmap) extras.get("data");
+		        mImageView = (ImageView) findViewById(R.id.profilePicture); 
+		        mImageView.setImageBitmap(imageBitmap);
+		        break;
+			case SELECT_FILE:
+				Uri selectedImage = data.getData();
+	            String[] filePathColumn = {MediaStore.Images.Media.DATA};
+
+	            Cursor cursor = getContentResolver().query(
+	                               selectedImage, filePathColumn, null, null, null);
+	            cursor.moveToFirst();
+
+	            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+	            String filePath = cursor.getString(columnIndex);
+	            cursor.close();
+
+
+	            Bitmap yourSelectedImage = BitmapFactory.decodeFile(filePath);
+		        mImageView = (ImageView) findViewById(R.id.profilePicture); 
+//		        mImageView.setImageBitmap(yourSelectedImage);
+		        
+		        final BitmapFactory.Options options = new BitmapFactory.Options();
+		        options.inSampleSize = 8;
+
+		        Bitmap bm = BitmapFactory.decodeFile(filePath,options);
+		        mImageView.setImageBitmap(bm);
+	            
+//	            BitmapFactory.Options options = new BitmapFactory.Options();
+//	            options.inJustDecodeBounds = true;
+//	            mImageView.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.id.profilePicture, options));
+//	            BitmapFactory.decodeResource(getResources(), R.id.profilePicture, options);
+
+//	            mImageView.setImageBitmap(
+//	            	    decodeSampledBitmapFromResource(getResources(), R.id.profilePicture, 100, 100));
+				break;
+		    
+			}
+		}
+	}
+	
+	public static int calculateInSampleSize(
+            BitmapFactory.Options options, int reqWidth, int reqHeight) {
+    // Raw height and width of image
+    final int height = options.outHeight;
+    final int width = options.outWidth;
+    int inSampleSize = 1;
+
+    if (height > reqHeight || width > reqWidth) {
+
+        final int halfHeight = height / 2;
+        final int halfWidth = width / 2;
+
+        // Calculate the largest inSampleSize value that is a power of 2 and keeps both
+        // height and width larger than the requested height and width.
+        while ((halfHeight / inSampleSize) > reqHeight
+                && (halfWidth / inSampleSize) > reqWidth) {
+            inSampleSize *= 2;
+        }
+    }
+
+    return inSampleSize;
+}
+	
+	public static Bitmap decodeSampledBitmapFromResource(Resources res, int resId,
+	        int reqWidth, int reqHeight) {
+
+	    // First decode with inJustDecodeBounds=true to check dimensions
+	    final BitmapFactory.Options options = new BitmapFactory.Options();
+	    options.inJustDecodeBounds = true;
+	    BitmapFactory.decodeResource(res, resId, options);
+
+	    // Calculate inSampleSize
+	    options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
+
+	    // Decode bitmap with inSampleSize set
+	    options.inJustDecodeBounds = false;
+	    return BitmapFactory.decodeResource(res, resId, options);
 	}
 
 }
